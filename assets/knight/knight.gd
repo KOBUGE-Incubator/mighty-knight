@@ -52,6 +52,15 @@ func _fixed_process(delta):
 			damaged()
 			
 		move(Vector2(SPEED-1,0))
+		
+		if Input.is_action_just_pressed("attack"):
+			_on_attack_button_down()
+		
+		if Input.is_action_pressed("jump"):
+			_on_jump_button_down()
+		
+		if Input.is_action_just_released("jump"):
+			jumping = false
 
 
 func _on_jump_button_down():
