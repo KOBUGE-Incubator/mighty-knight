@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://assets/spikes/spikes.gd" type="Script" id=1]
+[ext_resource path="res://assets/spikes/spikes.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -34.9918, 32.3781, -23.679, 0.0955238, 24.223, 0.0955238, 34.8873, 34.8857, -35.0426, 35.2353 )
+
+[node name="spikes" type="Area2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -34.9918, 32.3781, -23.679, 0.0955238, 24.223, 0.0955238, 34.8873, 34.8857, -35.0426, 35.2353 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[connection signal="body_enter" from="." to="." method="_on_spikes_body_enter"]
+
+

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://assets/icons/lifes.png" type="Texture" id=1]
+
+[node name="life" type="Sprite"]
+
+transform/pos = Vector2( 128.692, 30.1367 )
+texture = ExtResource( 1 )
+
+
